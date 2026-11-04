@@ -1,8 +1,8 @@
 import React from 'react'
-import {Link}from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const Hero = () => {
-  
+
     const [menuOpen, setMenuOpen] = React.useState(false);
 
     const companiesLogo = [
@@ -14,14 +14,15 @@ const Hero = () => {
     ];
 
 
-  return (
-  <>
-            <div className="min-h-screen pb-20">
+    return (
+        <>
+            {/* <div className="min-h-screen pb-20"> */}
+            <div className="min-h-screen w-full overflow-x-hidden border-x border-slate-200 pb-20 sm:border-x-0">
                 {/* Navbar */}
-                <nav className="z-50 flex items-center justify-between w-full py-4 px-6 md:px-16 lg:px-24 xl:px-40 text-sm">
+                <nav className="z-50 flex items-center justify-between w-full py-4 px-4 sm:px-6 lg:px-10 xl:px-16 text-sm">
                     <Link to="/">
                         <img src="/logo.svg" alt="logo" className='h-11 w-auto' />
-                  </Link>
+                    </Link>
 
                     <div className="hidden md:flex items-center gap-8 transition duration-500 text-slate-800">
                         <a href="#" className="hover:text-orange-600 transition">Home</a>
@@ -62,7 +63,7 @@ const Hero = () => {
                     <div className="absolute top-28 xl:top-10 -z-10 left-1/4 size-72 sm:size-96 xl:size-120 2xl:size-132 bg-orange-300 blur-[100px] opacity-30"></div>
 
                     {/* Avatars + Stars */}
-                    <div className="flex items-center mt-24">
+                    <div className="flex items-center mt-12 sm:mt-16 lg:mt-20">
                         <div className="flex -space-x-3 pr-3">
                             <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200" alt="user3" className="size-8 object-cover rounded-full border-2 border-white hover:-translate-y-0.5 transition z-[1]" />
                             <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=200" alt="user1" className="size-8 object-cover rounded-full border-2 border-white hover:-translate-y-0.5 transition z-2" />
@@ -84,16 +85,24 @@ const Hero = () => {
                     </div>
 
                     {/* Headline + CTA */}
-                    <h1 className="text-5xl md:text-6xl font-semibold max-w-5xl text-center mt-4 md:leading-[70px]">
+                    {/* <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold max-w-5xl text-center mt-4 md:leading-[70px]">
                         Land your dream job with <span className=" bg-gradient-to-r from-orange-700 to-orange-400 bg-clip-text text-transparent text-nowrap">AI -powered  </span>Resume.
+                    </h1> */}
+
+                    <h1 className="mt-4 w-full max-w-5xl px-2 text-center text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl lg:text-7xl">
+                        Land your dream job with{" "}
+                        <span className="bg-gradient-to-r from-orange-700 to-orange-400 bg-clip-text text-transparent">
+                            AI-powered
+                        </span>{" "}
+                        Resume.
                     </h1>
 
                     <p className="max-w-md text-center text-base my-7">
-                       Create, edit, and download professional resume with AI- powered assistance.
+                        Create, edit, and download professional resume with AI- powered assistance.
                     </p>
 
                     {/* CTA Buttons */}
-                    <div className="flex items-center gap-4 ">
+                    <div className="flex w-full flex-col sm:w-auto sm:flex-row items-center gap-3 sm:gap-4">
                         <Link to='/app' className="bg-orange-500 hover:bg-orange-600 text-white rounded-full px-9 h-12 m-1 ring-offset-2 ring-1 ring-orange-400 flex items-center transition-colors">
                             Get started
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-arrow-right ml-1 size-4" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
@@ -106,7 +115,7 @@ const Hero = () => {
 
                     <p className="py-6 text-slate-600 mt-14">Trusting by leading brands, including</p>
 
-                    <div className="flex flex-wrap justify-between max-sm:justify-center gap-6 max-w-3xl w-full mx-auto py-4" id="logo-container">
+                    <div className="flex flex-wrap justify-center sm:justify-between max-sm:justify-center gap-6 max-w-5xl w-full mx-auto py-4" id="logo-container">
                         {companiesLogo.map((company, index) => (
                             <React.Fragment key={index}>
                                 {company.logo}
@@ -125,7 +134,7 @@ const Hero = () => {
                 `}
             </style>
         </>
-  )
+    )
 }
 
 export default Hero
