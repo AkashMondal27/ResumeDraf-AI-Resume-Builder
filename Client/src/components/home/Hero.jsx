@@ -17,7 +17,8 @@ const Hero = () => {
     return (
         <>
             {/* <div className="min-h-screen pb-20"> */}
-            <div className="min-h-screen w-full overflow-x-hidden border-x border-slate-200 pb-20 sm:border-x-0">
+            {/* <div className="min-h-screen w-full overflow-x-hidden border-x border-slate-200 pb-20 sm:border-x-0"> */}
+            <div className="min-h-0 lg:min-h-screen w-full overflow-x-hidden border-x border-slate-200 pb-10 lg:pb-20 sm:border-x-0">
                 {/* Navbar */}
                 <nav className="z-50 flex items-center justify-between w-full py-4 px-4 sm:px-6 lg:px-10 xl:px-16 text-sm">
                     <Link to="/">
