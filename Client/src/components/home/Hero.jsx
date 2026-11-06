@@ -65,13 +65,39 @@ const Hero = () => {
 
                     {/* Avatars + Stars */}
                     <div className="flex items-center mt-12 sm:mt-16 lg:mt-20">
-                        <div className="flex -space-x-3 pr-3">
-                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200" alt="user3" className="size-8 object-cover rounded-full border-2 border-white hover:-translate-y-0.5 transition z-[1]" />
+                        {/* <div className="flex -space-x-3 pr-3">
+                            <img src="?q=80&w=200" alt="user3" className="size-8 object-cover rounded-full border-2 border-white hover:-translate-y-0.5 transition z-[1]" />
                             <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=200" alt="user1" className="size-8 object-cover rounded-full border-2 border-white hover:-translate-y-0.5 transition z-2" />
                             <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=200" alt="user2" className="size-8 object-cover rounded-full border-2 border-white hover:-translate-y-0.5 transition z-[3]" />
                             <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200" alt="user3" className="size-8 object-cover rounded-full border-2 border-white hover:-translate-y-0.5 transition z-[4]" />
                             <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="user5" className="size-8 rounded-full border-2 border-white hover:-translate-y-0.5 transition z-[5]" />
-                        </div>
+                        </div> */}
+
+                        <div className="flex -space-x-3 pr-3">
+    <img
+        src="https://media.licdn.com/dms/image/v2/D4E35AQH2GjaKu2nd8A/profile-framedphoto-shrink_800_800/B4EZq2IhIdKUAg-/0/1763992277883?e=1794578400&v=beta&t=38_Sn1aaoZCaA9kbmDLym4tlzdc5ZlZtDtYW2Krb73g"
+        alt="Avik Ghosh"
+        className="size-8 object-cover rounded-full border-2 border-white hover:-translate-y-0.5 transition z-[5]"
+    />
+
+    <img
+        src="https://media.licdn.com/dms/image/v2/D4D35AQHDxoLbxqXrPw/profile-framedphoto-shrink_800_800/B4DaBJO32RHsAY-/0/1787935031334?e=1794578400&v=beta&t=J4V3NP4b6dLpFD_ZWZ1CIMx0nUViWBtbPNYyFsimXpo"
+        alt="Chirantan Mallick"
+        className="size-8 object-cover rounded-full border-2 border-white hover:-translate-y-0.5 transition z-[4]"
+    />
+
+    <img
+        src="https://media.licdn.com/dms/image/v2/D5635AQELY8zsNerIPQ/profile-framedphoto-shrink_800_800/B56Z13wVJaHAAg-/0/1775830651755?e=1794578400&v=beta&t=SfIAwr6FJVUncIZc217bDEX5NOS71KW60Z1hnj7GFZI"
+        alt="Piyal Baray"
+        className="size-8 object-cover rounded-full border-2 border-white hover:-translate-y-0.5 transition z-[3]"
+    />
+
+    <img
+        src="https://media.licdn.com/dms/image/v2/D4D03AQFtDLPAxpwF7g/profile-displayphoto-crop_800_800/B4DaCJ7G6kJYAI-/0/1789020372851?e=1795651200&v=beta&t=WJ8b15yuQPzP5UnbIKoMoeoUBTUDOKQwFYpnKnN02p0"
+        alt="Gourab Ganguly"
+        className="size-8 object-cover rounded-full border-2 border-white hover:-translate-y-0.5 transition z-[2]"
+    />
+</div>
 
                         <div>
                             <div className="flex ">
