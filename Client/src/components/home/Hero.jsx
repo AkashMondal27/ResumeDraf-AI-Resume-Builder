@@ -36,7 +36,8 @@ const Hero = () => {
                         <Link to='/app?start=register' className="hidden md:block px-6 py-2 bg-orange-400 hover:bg-orange-600 active:scale-95 transition-all rounded-full text-white">
                             Get started
                         </Link>
-                        <Link to='/app?state=login' className="hidden md:block px-6 py-2 border active:scale-95 hover:bg-slate-50 transition-all rounded-full text-slate-700 hover:text-orange-900" >
+                        <Link to="/login"
+                         className="hidden md:block px-6 py-2 border active:scale-95 hover:bg-slate-50 transition-all rounded-full text-slate-700 hover:text-orange-900" >
                             Login
                         </Link>
                     </div>
@@ -75,19 +76,19 @@ const Hero = () => {
 
                         <div className="flex -space-x-3 pr-3">
     <img
-        src="https://media.licdn.com/dms/image/v2/D4E35AQH2GjaKu2nd8A/profile-framedphoto-shrink_800_800/B4EZq2IhIdKUAg-/0/1763992277883?e=1794578400&v=beta&t=38_Sn1aaoZCaA9kbmDLym4tlzdc5ZlZtDtYW2Krb73g"
+        src="https://media.licdn.com/dms/image/v2/D4E35AQH2GjaKu2nd8A/profile-framedphoto-shrink_800_800/B4EZq2IhIdKUAg-/0/1763992277883?e=1795248000&v=beta&t=ElIiVGesFpKGxAqvx24HpV4pxNtXkTqnkT8VbO9mi7w"
         alt="Avik Ghosh"
         className="size-8 object-cover rounded-full border-2 border-white hover:-translate-y-0.5 transition z-[5]"
     />
 
     <img
-        src="https://media.licdn.com/dms/image/v2/D4D35AQHDxoLbxqXrPw/profile-framedphoto-shrink_800_800/B4DaBJO32RHsAY-/0/1787935031334?e=1794578400&v=beta&t=J4V3NP4b6dLpFD_ZWZ1CIMx0nUViWBtbPNYyFsimXpo"
+        src="https://media.licdn.com/dms/image/v2/D4D35AQHDxoLbxqXrPw/profile-framedphoto-shrink_800_800/B4DaBJO32RHsAY-/0/1787935031334?e=1795248000&v=beta&t=k5oYUBA16Zf8OwHyI05CH94GTFKdICXE_vh81t43r0o"
         alt="Chirantan Mallick"
         className="size-8 object-cover rounded-full border-2 border-white hover:-translate-y-0.5 transition z-[4]"
     />
 
     <img
-        src="https://media.licdn.com/dms/image/v2/D5635AQELY8zsNerIPQ/profile-framedphoto-shrink_800_800/B56Z13wVJaHAAg-/0/1775830651755?e=1794578400&v=beta&t=SfIAwr6FJVUncIZc217bDEX5NOS71KW60Z1hnj7GFZI"
+        src="https://media.licdn.com/dms/image/v2/D4D35AQGZZ92p4QGE8g/profile-framedphoto-shrink_800_800/B4DaHG.JqGK4AY-/0/1794339544102?e=1795248000&v=beta&t=Nd_elDAHAWUopWORzxpfv4EeBBunakXPD5iRMtedl7g"
         alt="Piyal Baray"
         className="size-8 object-cover rounded-full border-2 border-white hover:-translate-y-0.5 transition z-[3]"
     />

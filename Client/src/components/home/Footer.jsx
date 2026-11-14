@@ -118,7 +118,7 @@ const Footer = () => {
 
                 </div>
                 <p className="py-4 text-center border-t mt-6 border-slate-200">
-                    Copyright 2025 © <a href="https://www.linkedin.com/in/akashmondal27/">resume <span className='font-bold'>.</span>  -</a> All Right Reserved.
+                    Copyright 2025 © <a href="https://www.linkedin.com/in/akashmondal27/">resume <span className='font-bold text-green-600'>.</span>  -</a> All Right Reserved.
                 </p>
             </footer>
         </div>
