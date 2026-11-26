@@ -122,7 +122,7 @@ const Dashboard = () => {
         {
           showCreateResume && (
             <form onSubmit={createResume} onClick={() => setShowCreateResume(false)}
-              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-10 flex items-center justify-center">
+              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-10 flex items-center justify-center lg:p-0  md:p-0.5 p-2">
               <div onClick={e => e.stopPropagation()}
                 className='relative bg-slate-50 border shadow-md rounded-lg 
                                      w-full max-w-sm p-6'>
@@ -153,8 +153,9 @@ const Dashboard = () => {
         {/* Clicked the Upload resume button toget upload popup */}
 
         {showUploadResume && (
-          <form onSubmit={uploadResume} onClick={() => setShowUpoloadResume(false)}
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-10 flex items-center justify-center lg:p-0 p-2">
+          <form onSubmit={uploadResume} 
+                onClick={() => setShowUpoloadResume(false)}
+                className="fixed inset-0 bg-black/50 backdrop-blur-sm z-10 flex items-center justify-center lg:p-0 md:p-0.5 p-2">
             <div onClick={e => e.stopPropagation()}
               className='relative bg-slate-50 border shadow-md rounded-lg 
                                      w-full max-w-sm p-6'>
@@ -171,7 +172,7 @@ const Dashboard = () => {
 
                               {/* Upload icon and button */}
               <div>
-                <lebel htmlFor="resume-input" className="block text-sm text-slate-700">
+                <label htmlFor="resume-input" className="block text-sm text-slate-700">
                     Select resume file
 
                     <div className='flex flex-col items-center justify-center gap-2 border group 
@@ -185,14 +186,19 @@ const Dashboard = () => {
                                 </p>
                               ) :(
                                 <>
-                                <UploadCloudIcon className='size-14 stoke-1'/>
+                                <UploadCloudIcon className='size-14 stroke-1'/>
                                 <p>Upload Resume</p>
                                 </>
                               )
                             }
 
                     </div>
-                </lebel>
+                </label>
+
+                {/* Addd the exixting resume */}
+
+                <input type='file' id='resume-input' accept='.pdf' hidden
+                       onChange={(e)=>setResume(e.target.files[0])}/>
               </div>
 
               <button className='w-full py-2 bg-orange-400 text-white rounded
