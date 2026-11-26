@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { dummyResumeData } from '../assets/assets.js'
 import { useNavigate } from 'react-router-dom'
 
+
 const Dashboard = () => {
 
   const colors = ["#9333ea", "#d97706", "#dc2626", "#0284c7", "#16a34a"]
@@ -31,11 +32,26 @@ const Dashboard = () => {
   }
 
 
-  const uploadResume=async(event)=>{
-      event.preventDefault();
+  const uploadResume = async (event) => {
+    event.preventDefault();
     setShowUpoloadResume(false)
     navigate(`/app/builder/res123`)
   }
+
+
+ const editTitle=async(event)=>{
+   event.preventDefault();
+    
+ }
+
+ const deleteResume=async(resumeId)=>{
+   const confirm=window.confirm("Are you sure you want to delete this resume ?")
+    if(confirm){
+      setAllResumes(prev=>prev.filter(resume=>resume._id !=resumeId))
+    }
+ }
+
+
   // Add the dummay remume data
   useEffect(() => {
     loadAllResumes();
@@ -64,8 +80,8 @@ const Dashboard = () => {
           </button>
 
           {/* Upload existing resume */}
-          <button onClick={()=>setShowUpoloadResume(true)}
-           className="w-full bg-white sm:max-w-36 h-48 flex flex-col items-center justify-center
+          <button onClick={() => setShowUpoloadResume(true)}
+            className="w-full bg-white sm:max-w-36 h-48 flex flex-col items-center justify-center
                             rounded-lg gap-2 text-slate-600 border border-dashed border-slate-300 group
                             hover:border-purple-500 hover:shadow-lg transition-all duration-300 
                              cursor-pointer">
@@ -85,13 +101,14 @@ const Dashboard = () => {
             const basecolors = colors[index % colors.length];
             return (
               <button key={index}
+                onClick={() => navigate(`/app/builder/${resume._id}`)}
                 className='relative w-full sm:max-w-36 h-48 flex flex-col
                                items-center justify-center rounded-lg gap-2 border group
                                 hover:shadow-lg transition-all duration-300 cursor-pointer'
                 style={{
                   background: `linear-gradient(135deg, ${basecolors}10, ${basecolors}40)`,
                   borderColor: basecolors + "40"
-                }}            >
+                }}  >
 
                 <FilePenLineIcon className='size-7 group-hover:scale-105 transition-all'
                   style={{ color: basecolors }} />
@@ -106,10 +123,13 @@ const Dashboard = () => {
                   Updated on {new Date(resume.updatedAt).toLocaleDateString()}
                 </p>
 
-                <div className='absolute top-1 right-1 group-hover:flex items-center hidden'>
-                  <TrashIcon className='size-7 p-1.5 hover:bg-red-400 rounded text-slate-700 transition-colors' />
+                <div  onClick={e=>e.stopPropagation()}
+                   className='absolute top-1 right-1 group-hover:flex items-center hidden'>
+                  <TrashIcon onClick={()=>deleteResume(resume._id)} 
+                            className='size-7 p-1.5 hover:bg-red-400 rounded text-slate-700 transition-colors' />
 
-                  <PencilIcon className='size-7 p-1.5 hover:bg-green-300 rounded text-slate-700 transition-colors' />
+                  <PencilIcon onClick={()=>{setEditResumeId(resume._id) ; setTitle(resume.title)}}
+                            className='size-7 p-1.5 hover:bg-green-300 rounded text-slate-700 transition-colors' />
                 </div>
               </button>
             )
@@ -129,7 +149,7 @@ const Dashboard = () => {
                 <h2 className='text-xl font-bold mb-4'>
                   Create a Resume
                 </h2>
-                <input onChange={(e)=>setTitle(e.target.value)} value={title}
+                <input onChange={(e) => setTitle(e.target.value)} value={title}
                   type='text' placeholder='Enter Resume Title'
                   className="w-full px-4 py-2 mb-4 border border-slate-300 
                                         rounded-md outline-none focus:border-orange-500 focus:ring-1
@@ -153,16 +173,16 @@ const Dashboard = () => {
         {/* Clicked the Upload resume button toget upload popup */}
 
         {showUploadResume && (
-          <form onSubmit={uploadResume} 
-                onClick={() => setShowUpoloadResume(false)}
-                className="fixed inset-0 bg-black/50 backdrop-blur-sm z-10 flex items-center justify-center lg:p-0 md:p-0.5 p-2">
+          <form onSubmit={uploadResume}
+            onClick={() => setShowUpoloadResume(false)}
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-10 flex items-center justify-center lg:p-0 md:p-0.5 p-2">
             <div onClick={e => e.stopPropagation()}
               className='relative bg-slate-50 border shadow-md rounded-lg 
                                      w-full max-w-sm p-6'>
               <h2 className='text-xl font-bold mb-4'>
                 Upload Resume
               </h2>
-              <input onChange={(e)=>setTitle(e.target.value)} value={title}
+              <input onChange={(e) => setTitle(e.target.value)} value={title}
                 type='text' placeholder='Enter Resume Title'
                 className="w-full px-4 py-2 mb-4 border border-slate-300 
                                         rounded-md outline-none focus:border-orange-500 focus:ring-1
@@ -170,35 +190,35 @@ const Dashboard = () => {
                 required />
 
 
-                              {/* Upload icon and button */}
+              {/* Upload icon and button */}
               <div>
                 <label htmlFor="resume-input" className="block text-sm text-slate-700">
-                    Select resume file
+                  Select resume file
 
-                    <div className='flex flex-col items-center justify-center gap-2 border group 
+                  <div className='flex flex-col items-center justify-center gap-2 border group 
                                     text-slate-400 border-dashed rounded-md p-4 py-10 my-4 
                                     hover:border-orange-300 hover:text-orange-500 cursor-pointer
                                     transition-colors'>
-                            {
-                              resume ?(
-                                <p className='text-orange-700'>
-                                  {resume.name}
-                                </p>
-                              ) :(
-                                <>
-                                <UploadCloudIcon className='size-14 stroke-1'/>
-                                <p>Upload Resume</p>
-                                </>
-                              )
-                            }
+                    {
+                      resume ? (
+                        <p className='text-orange-700'>
+                          {resume.name}
+                        </p>
+                      ) : (
+                        <>
+                          <UploadCloudIcon className='size-14 stroke-1' />
+                          <p>Upload Resume</p>
+                        </>
+                      )
+                    }
 
-                    </div>
+                  </div>
                 </label>
 
                 {/* Addd the exixting resume */}
 
                 <input type='file' id='resume-input' accept='.pdf' hidden
-                       onChange={(e)=>setResume(e.target.files[0])}/>
+                  onChange={(e) => setResume(e.target.files[0])} />
               </div>
 
               <button className='w-full py-2 bg-orange-400 text-white rounded
@@ -217,6 +237,42 @@ const Dashboard = () => {
         )
 
         }
+
+
+      {/* Edit the  created resume  */}
+
+        
+        {  editResumeId && (
+            <form onSubmit={editTitle} 
+                  onClick={() => setEditResumeId('')}
+              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-10 flex items-center justify-center lg:p-0  md:p-0.5 p-2">
+              <div onClick={e => e.stopPropagation()}
+                className='relative bg-slate-50 border shadow-md rounded-lg 
+                                     w-full max-w-sm p-6'>
+                <h2 className='text-xl font-bold mb-4'>
+                  Edit Resume Title
+                </h2>
+                <input onChange={(e) => setTitle(e.target.value)} value={title}
+                  type='text' placeholder='Enter Resume Title'
+                  className="w-full px-4 py-2 mb-4 border border-slate-300 
+                                        rounded-md outline-none focus:border-orange-500 focus:ring-1
+                                      focus:ring-orange-300"
+                  required />
+
+                <button className='w-full py-2 bg-orange-400 text-white rounded
+                                          hover:bg-orange-600 transition-colors'>
+                  Update
+                </button>
+
+                <XIcon className='absolute top-4 right-4 text-slate-400 hover:text-slate-600
+                                          cursor-pointer transition-colors'
+                  onClick={() => { setEditResumeId(''); setTitle("") }} />
+              </div>
+
+            </form>
+          )
+        }
+
 
       </div>
     </div>
